@@ -55,7 +55,7 @@ namespace
     const int idCamelCase                  = wxNewId();
 
     const unsigned int MaxSuggestEntries = 5;
-    const unsigned int GetWordStartsLimit = 30;
+    const int GetWordStartsLimit = 30;
     const int idSuggest[MaxSuggestEntries] =
         {static_cast<int>(wxNewId()), static_cast<int>(wxNewId()), static_cast<int>(wxNewId()), static_cast<int>(wxNewId()), static_cast<int>(wxNewId())};
     const int idAddToDictionary            = wxNewId();
@@ -357,6 +357,8 @@ void SpellCheckerPlugin::BuildModuleMenu(const ModuleType type, wxMenu* menu, cb
             wordstart--;
         }
     }
+    else
+        return;
     wordend = wordstart;
     while ( wordend < stc->GetLength()-1 )
     {
