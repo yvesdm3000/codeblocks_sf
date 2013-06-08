@@ -106,6 +106,7 @@ class ProjectManagerUI : public wxEvtHandler, public cbProjectManagerUI
         void OnUpdateUI(wxUpdateUIEvent& event);
         void OnIdle(wxIdleEvent& event);
         void OnKeyDown(wxTreeEvent& event);
+        void OnFileOptions(wxCommandEvent& event);
 
 
         /** Move a project up in the project manager tree. This effectively

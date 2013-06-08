@@ -42,7 +42,6 @@ template<> bool  Mgr<ProjectManager>::isShutdown = false;
 // static
 bool ProjectManager::s_CanShutdown = true;
 
-
 BEGIN_EVENT_TABLE(ProjectManager, wxEvtHandler)
 END_EVENT_TABLE()
 
@@ -181,7 +180,6 @@ void ProjectManager::SetProject(cbProject* project, bool refresh)
     event.SetProject(m_pActiveProject);
     Manager::Get()->GetPluginManager()->NotifyPlugins(event);
 }
-
 
 cbProject* ProjectManager::IsOpen(const wxString& filename)
 {

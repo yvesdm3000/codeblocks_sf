@@ -3198,7 +3198,7 @@ void EditorManager::CollectDefines(CodeBlocksEvent& event)
             defines.Add(wxT("__WXOSX_MAC__"));
             defines.Add(wxT("__APPLE__"));
         }
-        else if (platform::linux)
+        else if (platform::Linux)
         {
             defines.Add(wxT("LINUX"));
             defines.Add(wxT("linux"));
@@ -3233,7 +3233,7 @@ void EditorManager::CollectDefines(CodeBlocksEvent& event)
             defines.Add(wxT("__SUNOS__"));
             defines.Add(wxT("__SOLARIS__"));
         }
-        if (platform::unix)
+        if (platform::Unix)
         {
             defines.Add(wxT("unix"));
             defines.Add(wxT("__unix"));
