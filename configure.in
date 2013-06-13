@@ -10,6 +10,8 @@ AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip])
 
+AC_DISABLE_STATIC
+
 LT_INIT
 
 AC_CONFIG_HEADER([src/include/config.h])
@@ -277,7 +279,7 @@ case `uname` in
 esac
 AC_MSG_RESULT($PIC_FLAGS)
 
-CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
+CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
 CXXFLAGS="$CXXFLAGS $PCH_FLAGS $PIC_FLAGS -fexceptions"
 AC_SUBST(codeblocks_PCH_FLAGS, "$PCH_FLAGS")
 

@@ -1471,8 +1471,13 @@ void EditorManager::CalculateFindReplaceStartEnd(cbStyledTextCtrl* control, cbFi
         // there can be a selection, the last found match)
         if ((data->scope == 0) && data->NewSearch && (ssta != cpos || send != cpos))
         {
-            ssta = cpos;
-            send = cpos;
+            // Don't do this in replace mode, because we want to start the replacement
+            // with the current selection, not the first match after the selection.
+            if (!replace)
+            {
+                ssta = cpos;
+                send = cpos;
+            }
         }
 
 
@@ -1579,7 +1584,7 @@ int EditorManager::Replace(cbStyledTextCtrl* control, cbFindReplaceData* data)
     }
     control->BeginUndoAction(); // The undo is set at this point in case we need to convert the EOLs.
 
-    CalculateFindReplaceStartEnd(control, data);
+    CalculateFindReplaceStartEnd(control, data, true);
 
     if (data->matchWord)
         flags |= wxSCI_FIND_WHOLEWORD;
@@ -3198,7 +3203,7 @@ void EditorManager::CollectDefines(CodeBlocksEvent& event)
             defines.Add(wxT("__WXOSX_MAC__"));
             defines.Add(wxT("__APPLE__"));
         }
-        else if (platform::Linux)
+        else if (platform::linux)
         {
             defines.Add(wxT("LINUX"));
             defines.Add(wxT("linux"));
@@ -3233,7 +3238,7 @@ void EditorManager::CollectDefines(CodeBlocksEvent& event)
             defines.Add(wxT("__SUNOS__"));
             defines.Add(wxT("__SOLARIS__"));
         }
-        if (platform::Unix)
+        if (platform::unix)
         {
             defines.Add(wxT("unix"));
             defines.Add(wxT("__unix"));
