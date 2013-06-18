@@ -491,6 +491,10 @@ void CodeBlocksApp::InitLocale()
 
 bool CodeBlocksApp::OnInit()
 {
+#ifdef __WXMSW__
+    InitCommonControls();
+#endif
+
     wxLog::EnableLogging(true);
 
     SetAppName(_T("codeblocks"));
