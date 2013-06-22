@@ -76,9 +76,10 @@ pkgconfig_DATA = wxsmith.pc
 EXTRA_DIST = \
 $(srcdir)/*.cbp \
 $(srcdir)/*.bat \
-$(srcdir)/update \
+$(srcdir)/update* \
 $(srcdir)/wxsmith/* \
-manifest.xml
+manifest.xml \
+wxs.doxy
 
 pkgdata_DATA = wxsmith.zip
 CLEANFILES = $(pkgdata_DATA)
