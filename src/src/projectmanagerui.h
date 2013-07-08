@@ -108,7 +108,6 @@ class ProjectManagerUI : public wxEvtHandler, public cbProjectManagerUI
         void OnKeyDown(wxTreeEvent& event);
         void OnFileOptions(wxCommandEvent& event);
 
-
         /** Move a project up in the project manager tree. This effectively
           * re-orders the projects build order.
           * @param project The project to move up.
